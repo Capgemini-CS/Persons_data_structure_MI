@@ -1,0 +1,56 @@
+//----------------------------Insert and Update  Car----------------------------
+
+
+INSERT INTO CAR (`NAME`,`MODEL`,`YEAR`,PERSON_ID) VALUES ('BMW','320D',2017,1);
+INSERT INTO CAR (`NAME`,`MODEL`,`YEAR`,PERSON_ID) VALUES ('BMW','520D',2018,1);
+INSERT INTO CAR (`NAME`,`MODEL`,`YEAR`,PERSON_ID) VALUES ('AUDI','S5',2016,2);
+INSERT INTO CAR (`NAME`,`MODEL`,`YEAR`,PERSON_ID) VALUES ('MERCEDES','CLA220',2020,3);
+INSERT INTO CAR (`NAME`,`MODEL`,`YEAR`,PERSON_ID) VALUES ('AUDI','RS7',2018,4);
+
+UPDATE CAR SET `YEAR` = '2021' WHERE CAR_ID=1;
+
+
+//----------------------------Insert and Update  Address----------------------------
+
+
+INSERT INTO ADDRESS (`NAME`,`NUMBER`,POSTAL_CODE) VALUES ("Lalelelor",12,123654);
+INSERT INTO ADDRESS (`NAME`,`NUMBER`,POSTAL_CODE) VALUES ("Muzeelor",4,987654);
+INSERT INTO ADDRESS (`NAME`,`NUMBER`,POSTAL_CODE) VALUES ("Aviatorilor",10,591629);
+INSERT INTO ADDRESS (`NAME`,`NUMBER`,POSTAL_CODE) VALUES ("Margica",1,907080);
+INSERT INTO ADDRESS (`NAME`,`NUMBER`,POSTAL_CODE) VALUES ("Dealului",8,256348);
+
+UPDATE ADDRESS SET POSTAL_CODE = '100200' WHERE ADDRESS_ID=3;
+UPDATE ADDRESS SET `NAME`='Pictor N. Grigorescu' , `NUMBER`=4 WHERE ADDRESS_ID=4;
+
+
+//----------------------------Insert and Update  Person----------------------------
+
+
+INSERT INTO PERSON (`NAME`,AGE,JOB_ID,ADDRESS_ID) VALUES ('Victor',22,2,1);
+INSERT INTO PERSON (`NAME`,AGE,JOB_ID,ADDRESS_ID) VALUES ('Gabi',22,5,2);
+INSERT INTO PERSON (`NAME`,AGE,JOB_ID,ADDRESS_ID) VALUES ('Alex',25,1,3);
+INSERT INTO PERSON (`NAME`,AGE,JOB_ID,ADDRESS_ID) VALUES ('Claudiu',24,4,4);
+INSERT INTO PERSON (`NAME`,AGE,JOB_ID,ADDRESS_ID) VALUES ('Denisa',23,3,5);
+
+UPDATE PERSON SET `NAME` = 'Claudiu George' WHERE PERSON_ID=4;
+
+
+//----------------------------Insert and Update and Delete  Car----------------------------
+
+
+INSERT INTO JOB (`NAME`,SALARY) VALUES ('Full stack developer', 6400);
+INSERT INTO JOB (`NAME`,SALARY) VALUES ('Java developer', 4400);
+INSERT INTO JOB (`NAME`,SALARY) VALUES ('Software Engineer', 8000);
+INSERT INTO JOB (`NAME`,SALARY) VALUES ('Front-end developer', 5200);
+INSERT INTO JOB (`NAME`,SALARY) VALUES ('Back-end developer', 7800);
+INSERT INTO JOB (`NAME`,SALARY) VALUES ('Scrum master', 6900);
+
+UPDATE JOB SET SALARY = 7350 WHERE JOB_ID = 1;
+
+DELETE FROM JOB WHERE JOB_ID = 7;
+
+
+//----------------------------Join on Person and Car----------------------------
+
+
+SELECT person.`NAME`, car.`NAME` FROM person RIGHT JOIN car ON person.PERSON_ID = car.PERSON_ID ORDER BY person.`NAME`;

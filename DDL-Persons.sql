@@ -1,0 +1,51 @@
+//----------------------------Create Table  Job----------------------------
+
+
+CREATE TABLE persons.job (
+  JOB_ID INT NOT NULL AUTO_INCREMENT,
+  `NAME` VARCHAR(50) NOT NULL,
+  SALARY INT NOT NULL,
+PRIMARY KEY(JOB_ID)
+);
+
+
+//----------------------------Create Table  Address----------------------------
+
+
+CREATE TABLE persons.address (
+  ADDRESS_ID INT NOT NULL AUTO_INCREMENT,
+  `NAME` VARCHAR(50) NOT NULL,
+  `NUMBER` INT NOT NULL,
+  POSTAL_CODE INT NOT NULL,
+PRIMARY KEY(ADDRESS_ID)
+);
+
+
+//----------------------------Create Table  Person----------------------------
+
+
+CREATE TABLE persons.person (
+PERSON_ID INT NOT NULL AUTO_INCREMENT,
+`NAME` VARCHAR(50) NOT NULL,
+`AGE` INT NOT NULL,
+JOB_ID INT NOT NULL,
+ADDRESS_ID INT NOT NULL,
+PRIMARY KEY (PERSON_ID),
+FOREIGN KEY (JOB_ID) REFERENCES JOB(JOB_ID),
+FOREIGN KEY (ADDRESS_ID) REFERENCES ADDRESS(ADDRESS_ID)
+);
+
+
+//----------------------------Create Table  Car----------------------------
+
+
+CREATE TABLE persons.car (
+CAR_ID INT NOT NULL AUTO_INCREMENT,
+`NAME` VARCHAR(20)NOT NULL,
+MODEL VARCHAR(20) NOT NULL,
+`YEAR` INT NOT NULL,
+PERSON_ID INT NOT NULL,
+PRIMARY KEY(CAR_ID),
+FOREIGN KEY (PERSON_ID) REFERENCES PERSON(PERSON_ID)
+);
+
